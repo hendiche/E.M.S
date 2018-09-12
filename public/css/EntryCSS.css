@@ -1,0 +1,37 @@
+#entry_text_area {
+    display: block;
+    margin: 0 auto;
+
+    width: 80%;
+
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    min-height: 60vh;
+}
+
+#entry_choices_area {
+    display: block;
+    margin: 0 auto;
+
+    width: 80%;
+    min-height: 20vh;
+    font-family: 'Book Antiqua';
+}
+
+#entry_choices_area > input{
+    margin-top: 2vh;
+}
+
+#entry_choices_area > input[type="submit"] {
+    background-color: #269CE9;
+    border-color: #269CE9;
+}
+ 
+#entry_choices_area > input[type="submit"]:hover{
+    background-color: #70B9E8;
+}
+  
+#entry_choices_area > input[type="submit"]:active{
+    background: #269CE9;
+}
+
