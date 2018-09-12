@@ -1,5 +1,6 @@
 @extends('Backend.header')
 @section('content')
+<<<<<<< HEAD
 <div id="main_content" class="shadoweffect">  
     
     <div class="title">Post Message:</div>
@@ -23,6 +24,23 @@
 </div>
 <!--I disabled because richtext doesn't seem to be needed -->
 <!--script>
+=======
+  
+
+    
+    <textarea id='entry_text_area' name="content" class="form-control my-editor"></textarea>
+
+    <form id='entry_choices_area' action="/action_page.php">
+        <input type="checkbox" name="facebook" value="Facebook">Facebook<br>
+        <input type="checkbox" name="slack" value="Slack">Slack<br>
+        <input type="checkbox" name="googlecalendar" value="Slack">Google Calendar<br>
+        <input type="submit" value="Send">
+    </form>
+
+
+
+<script>
+>>>>>>> Entry
   var editor_config = {
     path_absolute : "/",
     selector: "textarea.my-editor",
@@ -34,7 +52,11 @@
     ],
     toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media",
     relative_urls: false,
+<<<<<<< HEAD
     /*file_browser_callback : function(field_name, url, type, win) {
+=======
+    file_browser_callback : function(field_name, url, type, win) {
+>>>>>>> Entry
       var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
       var y = window.innerHeight|| document.documentElement.clientHeight|| document.getElementsByTagName('body')[0].clientHeight;
 
@@ -53,11 +75,19 @@
         resizable : "yes",
         close_previous : "no"
       });
+<<<<<<< HEAD
     }*/
   };
 
   tinymce.init(editor_config);
 </script-->
+=======
+    }
+  };
+
+  tinymce.init(editor_config);
+</script>
+>>>>>>> Entry
 
 
 @endsection 

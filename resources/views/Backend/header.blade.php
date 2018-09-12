@@ -11,9 +11,13 @@
     <!-- TinyMCE -->
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     <!-- Custom Theme Style -->
+<<<<<<< HEAD
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
     <link href="{{ asset('/css/EntryCSS.css') }}" rel="stylesheet"> 
+=======
+    <link href="{{ asset('/css/EntryCSS.css') }}" rel="stylesheet">
+>>>>>>> Entry
 </head>
 <body>
 @yield('content')

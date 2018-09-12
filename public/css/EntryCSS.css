@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     background-color: var(--gray-dark);
 }
@@ -59,11 +60,14 @@ body {
     font-size: 2em;
 }
 
+=======
+>>>>>>> Entry
 #entry_text_area {
     display: block;
     margin: 0 auto;
 
     width: 80%;
+<<<<<<< HEAD
     min-height: 25vh;
     max-height: 45vh;
     margin-bottom: 5vh;
@@ -75,29 +79,41 @@ body {
 
 .caption {
     display: inline;
+=======
+
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    min-height: 60vh;
+>>>>>>> Entry
 }
 
 #entry_choices_area {
     display: block;
     margin: 0 auto;
+<<<<<<< HEAD
     padding: 2vh 2vw;
     padding-left: 10vw;
 
     border: red solid 1px;
     background-color: var(--secondary);
     color: var(--light);
+=======
+>>>>>>> Entry
 
     width: 80%;
     min-height: 20vh;
     font-family: 'Book Antiqua';
 }
 
+<<<<<<< HEAD
 #entry_choices_area > select {
     margin-left: 5vw;
     margin-bottom: 3vh;
     width: 20vw;
 }
 
+=======
+>>>>>>> Entry
 #entry_choices_area > input{
     margin-top: 2vh;
 }
@@ -105,10 +121,13 @@ body {
 #entry_choices_area > input[type="submit"] {
     background-color: #269CE9;
     border-color: #269CE9;
+<<<<<<< HEAD
 
     font-family: 'Book Antiqua';
     color: #FFFFFF;
     padding: 0.1vh 2vw 0.1vh 2vw;
+=======
+>>>>>>> Entry
 }
  
 #entry_choices_area > input[type="submit"]:hover{
