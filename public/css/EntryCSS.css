@@ -56,7 +56,7 @@ body {
 .title {
     display: block;
     margin: 0 auto;
-    width: 80%;
+    margin-bottom: 3vh;
     font-size: 2em;
 }
 
@@ -64,10 +64,8 @@ body {
     display: block;
     margin: 0 auto;
 
-    width: 80%;
-    min-height: 25vh;
-    max-height: 45vh;
-    margin-bottom: 5vh;
+    min-height: 15vh;
+    margin-bottom: 1vh;
 
     box-sizing: border-box;
     padding: 2vh 2vw;
@@ -81,15 +79,9 @@ body {
 #entry_choices_area {
     display: block;
     margin: 0 auto;
-    padding: 2vh 2vw;
-    padding-left: 10vw;
+    padding: 2vh 0vw;
 
-    background-color: var(--secondary);
-    color: var(--light);
-
-    width: 80%;
     min-height: 20vh;
-    font-family: 'Book Antiqua';
 }
 
 #entry_choices_area > select {
@@ -100,12 +92,16 @@ body {
 
 #entry_choices_area > input{
     margin-top: 2vh;
+    margin-left: 2vw;
 }
 
 #entry_choices_area > input[type="submit"] {
     background-color: #269CE9;
     border-color: #269CE9;
+    width: 10vw;
+    height: 5vh;
 
+    margin-left: 0vw;
     font-family: 'Book Antiqua';
     color: #FFFFFF;
     padding: 0.1vh 2vw 0.1vh 2vw;
