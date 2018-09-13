@@ -10,6 +10,7 @@ use Google_Client;
 use Google_Service_Calendar;
 use Google_Service_Calendar_Event;
 use Illuminate\Http\Request;
+use DateTime;
 
 class BackendController extends Controller
 {
@@ -25,31 +26,29 @@ class BackendController extends Controller
 		return view('Backend.form');
 	}
 
-	public function slack()
+	public function slack($content)
 	{
 		$url = "https://hooks.slack.com/services/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";
 		$client = new Client();
 		$res = $client->request('POST', $url, [
-			RequestOptions::JSON => ['text' => 'bar']
+			RequestOptions::JSON => ['text' => $content]
 		]);
-		dd($res->getBody());
 	}
 
-	public function facebook()
+	public function facebook($content)
 	{
 		$url = "https://graph.facebook.com/v3.1/956851531155391/feed";
-		$fb_token = "EAAc6g5KyLsgBAAAlG8v78warLxplNljeckzqBckKlz3RGZAb8O1wrqzeDZBOw5yXL1FtjhDmG8cRDtBxIqFXGHcPKJ6YtdbEMiuanvpXPhnTWzXkjGX0yeuOqqEc89IvrvOeBzQYBBMsG3nrES5bMhEWtoBx0BhP65WQasBwwZA7ZCgWujVFH5KbczpXJh9I2jQKesX7HgZDZD";
-		$message = "test post message";
+		$fb_token = "EAAc6g5KyLsgBAIUdZAmj1L6ph8iBoQBBV6csnMSzAKPA4K4ZBtqOvFFYyyH0Bs37CgNRZCdyzHgvIVqDHXOVGxpnGBtORIPF9vxAn2pSLyzSgdgG9AvhNti3RZB4TYyVZAEbFWEXR0bvVbF6RZBqpWPx8tPCrunE9cAaDd240nXNuiWyPzAZCYdSfwt7Idfk349NycT3ovyDQZDZD";
+		$message = $content;
 
 		$url = $url . "?access_token=" . $fb_token;
 		$url = $url . "&message=" . $message;
 
 		$client = new Client();
 		$res = $client->request('POST', $url);
-		dd($res->getBody());
 	}
 
-	public function googleIndex()
+	public function googleIndex($request)
 	{
 		$client = new Google_Client();
         $client->setAuthConfig('client_secret.json');
@@ -62,7 +61,7 @@ class BackendController extends Controller
 
 		if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
             $this->client->setAccessToken($_SESSION['access_token']);
-            $this->store();
+            $this->store($request);
             // $service = new Google_Service_Calendar($this->client);
             // $calendarId = 'primary';
             // $results = $service->events->listEvents($calendarId);
@@ -92,31 +91,32 @@ class BackendController extends Controller
         } else {
             $this->client->authenticate($_GET['code']);
             $_SESSION['access_token'] = $this->client->getAccessToken();
-            return redirect()->route('back.google');
+            return redirect()->route('entry');
         }
 	}
 
-	public function store()
+	public function store($request)
 	{
-        $startDateTime = Carbon::now();
-        $endDateTime = $startDateTime->addDays(1);
+        $startDateTime = new DateTime($request->datetime_start);
+        $endDateTime = new DateTime($request->datetime_end);
+
         if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
             $this->client->setAccessToken($_SESSION['access_token']);
             $service = new Google_Service_Calendar($this->client);
             $calendarId = 'primary';
             $event = new Google_Service_Calendar_Event([
-                'summary' => 'this is title',
-                'description' => 'this is description',
-                'start' => ['dateTime' => '2018-09-12T05:06:07-07:00'],
-                'end' => ['dateTime' => '2018-09-14T05:06:07-07:00'],
+                'summary' => $request->title,
+                'description' => $request->content,
+                'start' => ['dateTime' => $startDateTime->format(DateTime::ISO8601)],
+                'end' => ['dateTime' => $endDateTime->format(DateTime::ISO8601)], //2018-09-14T05:06:07-07:00
                 'reminders' => ['useDefault' => false],
             ]);
             $results = $service->events->insert($calendarId, $event);
-            dd($results);
-            if (!$results) {
-                return response()->json(['status' => 'error', 'message' => 'Something went wrong']);
-            }
-            return response()->json(['status' => 'success', 'message' => 'Event Created']);
+            // dd($results);
+            // if (!$results) {
+            //     return response()->json(['status' => 'error', 'message' => 'Something went wrong']);
+            // }
+            // return response()->json(['status' => 'success', 'message' => 'Event Created']);
         } else {
             return redirect()->route('back.google');
         }

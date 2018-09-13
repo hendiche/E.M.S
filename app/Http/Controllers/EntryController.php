@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Poster;
+use App\Http\Controllers\Backend\BackendController;
 
 class EntryController extends Controller
 {
@@ -15,6 +17,19 @@ class EntryController extends Controller
     }
 
     public function submit(Request $request) {
-        dd($request -> all());
+    	$backendFunc = new BackendController();
+
+        if ($request->facebook) {
+        	$backendFunc->facebook($request->content);
+        }
+        if ($request->slack) {
+        	$backendFunc->slack($request->content);
+        }
+        if ($request->googlecalendar) {
+        	$backendFunc->googleIndex($request);
+        }
+        
+        return redirect()->route('entry')
+            ->withSuccess('Your Event has successfully Added!!!');
     }
 }
