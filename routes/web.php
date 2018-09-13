@@ -23,6 +23,7 @@ Route::group(['prefix' => ''], function() {
 
 Route::group(['prefix' => 'admin'], function() {
 	Route::get('/', ['as' => 'entry', 'uses' => 'EntryController@index']);
+    Route::post('/submit', 'EntryController@submit')->name('submit');
 
 	Route::get('/form', 'Backend\BackendController@showForm')->name('back.form');
 });
