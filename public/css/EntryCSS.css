@@ -1,0 +1,120 @@
+body {
+    background-color: var(--gray-dark);
+}
+
+#main_content {
+    display: block;
+    margin: 2.5vh 10vw;
+    padding: 4vh 2.5vw 2.5vh 2.5vw;
+
+    background-color: var(--light);
+    border: black 1.5px solid;
+    min-width: 80vw;
+    width: 80vw;
+    min-height: 95vh;
+    height: 95vh;
+
+    overflow: auto;
+}
+
+.shadoweffect
+{
+  position: relative;
+}
+.shadoweffect:before, .shadoweffect:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: var(--dark);
+  -webkit-box-shadow: 0 15px 10px var(--dark);
+  -moz-box-shadow: 0 15px 10px var(--dark);
+  box-shadow: 0 15px 10px var(--dark);
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.shadoweffect:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+.title {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    font-size: 2em;
+}
+
+#entry_text_area {
+    display: block;
+    margin: 0 auto;
+
+    width: 80%;
+    min-height: 25vh;
+    max-height: 45vh;
+    margin-bottom: 5vh;
+
+    box-sizing: border-box;
+    padding: 2vh 2vw;
+    resize: vertical;
+}
+
+.caption {
+    display: inline;
+}
+
+#entry_choices_area {
+    display: block;
+    margin: 0 auto;
+    padding: 2vh 2vw;
+    padding-left: 10vw;
+
+    background-color: var(--secondary);
+    color: var(--light);
+
+    width: 80%;
+    min-height: 20vh;
+    font-family: 'Book Antiqua';
+}
+
+#entry_choices_area > select {
+    margin-left: 5vw;
+    margin-bottom: 3vh;
+    width: 20vw;
+}
+
+#entry_choices_area > input{
+    margin-top: 2vh;
+}
+
+#entry_choices_area > input[type="submit"] {
+    background-color: #269CE9;
+    border-color: #269CE9;
+
+    font-family: 'Book Antiqua';
+    color: #FFFFFF;
+    padding: 0.1vh 2vw 0.1vh 2vw;
+}
+ 
+#entry_choices_area > input[type="submit"]:hover{
+    background-color: #70B9E8;
+}
+  
+#entry_choices_area > input[type="submit"]:active{
+    background: #269CE9;
+}
+

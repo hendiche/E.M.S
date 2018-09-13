@@ -1,1 +1,5 @@
-<h1>Hi, im from backend form</h1>
+<!DOCTYPE html>
+<html lang="{{ app()->getLocale() }}">
+
+
+</html>
