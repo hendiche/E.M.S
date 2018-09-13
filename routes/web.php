@@ -25,4 +25,7 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::get('/', ['as' => 'entry', 'uses' => 'EntryController@index']);
 
 	Route::get('/form', 'Backend\BackendController@showForm')->name('back.form');
+
+	Route::get('/slack', 'Backend\BackendController@slack')->name('back.slack');
+	Route::get('/facebook', 'Backend\BackendController@facebook')->name('back.fb');
 });
