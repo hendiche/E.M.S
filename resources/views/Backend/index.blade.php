@@ -18,6 +18,7 @@
         <input type="checkbox" name="googlecalendar" value="Slack">Google Calendar<br>
 
         <input type="submit" value="Send">
+        <a href="{{ route('back.form') }}" class="btn btn-primary">to form</a>
     </form>
 
 </div>
