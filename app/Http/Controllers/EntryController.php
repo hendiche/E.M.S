@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Poster;
+use App\Post;
 
 class EntryController extends Controller
 {
@@ -15,6 +16,15 @@ class EntryController extends Controller
     }
 
     public function submit(Request $request) {
-        dd($request -> all());
+
+        Post::create([
+            'message' => $request -> content,
+            'name' => $request -> name,
+            'start_date' => \Carbon\Carbon::parse($request -> start_date)->format('Y-m-d'),
+            'end_date' => \Carbon\Carbon::parse($request -> end_date)->format('Y-m-d'),
+            
+        ]);
+
+        dd("Saved to DB!");
     }
 }
