@@ -6,15 +6,15 @@
 </div>
 <div class="card-columns">
 
-  <div class="card text-white bg-secondary">
+  <a href="/" class="card text-white bg-secondary">
     <img class="card-img-top" src="{{ asset('svg/403.svg') }}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Card title that wraps to a new line</h5>
       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     </div>
-  </div>
+  </a>
 
-  <div class="card p-3">
+  <a href="/" class="card p-3">
     <blockquote class="blockquote mb-0 card-body">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
       <footer class="blockquote-footer">
@@ -23,18 +23,18 @@
         </small>
       </footer>
     </blockquote>
-  </div>
+  </a>
 
-  <div class="card">
+  <a href="/" class="card">
     <img class="card-img-top" src="{{ asset('svg/500.svg') }}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
-  </div>
+  </a>
 
-  <div class="card bg-primary text-white text-center p-3">
+  <a href="/" class="card bg-primary text-white text-center p-3">
     <blockquote class="blockquote mb-0">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.</p>
       <footer class="blockquote-footer">
@@ -43,13 +43,13 @@
         </small>
       </footer>
     </blockquote>
-  </div>
+  </a>
 
-  <div class="card">
+  <a href="/" class="card">
     <img class="card-img" src="{{ asset('svg/404.svg') }}" alt="Card image">
-  </div>
+  </a>
 
-  <div class="card p-3 text-right">
+  <a href="/" class="card p-3 text-right">
     <blockquote class="blockquote mb-0">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
       <footer class="blockquote-footer">
@@ -58,15 +58,15 @@
         </small>
       </footer>
     </blockquote>
-  </div>
+  </a>
 
-  <div class="card">
+  <a href="/" class="card">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This is another card with title and supporting text below. This card has some additional content to make it slightly taller overall.</p>
       <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
-  </div>
+  </a>
 </div>
 
 @endsection

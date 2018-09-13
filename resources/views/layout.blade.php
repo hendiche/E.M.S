@@ -13,6 +13,15 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/app.js') }}"></script>
 
+    <style>
+      .card {
+        color: #000;
+      }
+      .card:hover {
+        text-decoration: none;
+        color:#000;
+      }
+    </style>
   </head>
   <body>
     <div class="container-fluid p-3 mw-100 mh-100">
