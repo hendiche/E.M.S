@@ -26,4 +26,11 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('/submit', 'EntryController@submit')->name('submit');
 
 	Route::get('/form', 'Backend\BackendController@showForm')->name('back.form');
+
+	Route::get('/slack', 'Backend\BackendController@slack')->name('back.slack');
+	Route::get('/facebook', 'Backend\BackendController@facebook')->name('back.fb');
+	Route::get('/google', 'Backend\BackendController@googleIndex')->name('back.google');
+	Route::post('/google/store', 'Backend\BackendController@store');
+
+	Route::get('/oauth', 'Backend\BackendController@oauth')->name('back.oauth');
 });

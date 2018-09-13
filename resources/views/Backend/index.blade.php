@@ -1,50 +1,57 @@
 @extends('Backend.layout')
 @section('content')
-<div id="main_content" class="shadoweffect">  
-
+<div id="main_content" class="shadoweffect">
+  @if(session('success'))
+        <div class="alert alert-success" role="alert">
+          {{ session('success') }}
+        </div>
+  @endif
     
     <div class="title">Post New Event:</div>
     <form novalidate method="POST" action="{{ route('submit')}}">
-        {{ csrf_field() }}        
-        
+        {{ csrf_field() }}
         <div class="form-group">
-            <label for="name">Event Name</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Event Name">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="Title">
         </div>
+        <textarea id='entry_text_area' name="content" class="form-control my-editor"></textarea>
 
-        <div class="form-group">
-            <div class="form-row">
-                <div class="col-6 mb-3">
-                    <label for="start_date">Start Date</label>
-                    <input type="date" class="form-control" name="start_date" id="start_date">
-                </div>
-                <div class="col-6 mb-3">
-                    <label for="end_date">End Date</label>
-                    <input type="date" class="form-control" name="end_date" id="end_date">
-                </div>
+        <div class="row">
+          <div class="col form-group column" style="margin: 0 -15px 16px">
+            <label for="example-datetime-local-input" class="col col-form-label">Date Time Start</label>
+            <div class="col">
+              <input class="form-control" type="datetime-local" value="" name="datetime_start" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}">
             </div>
+          </div>
+          <div class="col form-group column" style="margin: 0 -15px 16px">
+            <label for="example-datetime-local-input" class="col col-form-label">Date Time End</label>
+            <div class="col">
+              <input class="form-control" type="datetime-local" value="" name="datetime_end" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}">
+            </div>
+          </div>
         </div>
-
-
-        <div class="form-group">
-            <label for="entry_text_area">Details</label>
-            <textarea id='entry_text_area' name="content" class="form-control my-editor"
-            oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea>
-        </div>
-
         <div id="entry_choices_area">
-            <div class="caption">Send as: </div>
-            <select>
+            {{-- <div class="caption">Send as: </div> --}}
+            {{-- <select>
                 @foreach($posters as $poster) 
                     <option value="{!! $poster->id !!}"> {!! $poster->name !!} </option> 
                 @endforeach
-            </select><br>
-            <div class="caption">Send to: </div><br>
-            <input type="checkbox" name="facebook" value="Facebook">Facebook<br>
-            <input type="checkbox" name="slack" value="Slack">Slack<br>
-            <input type="checkbox" name="googlecalendar" value="Slack">Google Calendar<br>
+            </select><br> --}}
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="facebook" value="Facebook" id="facebook">
+              <label class="form-check-label" for="facebook">Facebook</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="slack" value="Slack" id="slack">
+              <label class="form-check-label" for="slack">Slack</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="googlecalendar" value="Googlecalendar" id="googlecalendar">
+              <label class="form-check-label" for="googlecalendar">Google Calendar</label>
+            </div>
 
-            <input type="submit" value="Send">
+            <input type="submit" value="Send" class="btn btn-primary btn-lg">
+            <a href="{{ route('back.oauth') }}" class="btn btn-success btn-sm float-right" style="margin-top: 3.5vh">Auth Google</a>
         </div>
     </form>
 </div>
