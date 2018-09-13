@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Poster;
 use App\Http\Controllers\Backend\BackendController;
 use App\Post;
+use Carbon;
 
 class EntryController extends Controller
 {
@@ -19,12 +20,12 @@ class EntryController extends Controller
 
     public function submit(Request $request) {
         Post::create([
-            'message' => $request -> content,
-            'name' => $request -> name,
-            'start_date' => \Carbon\Carbon::parse($request -> start_date)->format('Y-m-d'),
-            'end_date' => \Carbon\Carbon::parse($request -> end_date)->format('Y-m-d'),
-            
+            'message' => $request->content,
+            'name' => $request->title,
+            'start_date' => Carbon::parse($request->start_date)->format('Y-m-d'),
+            'end_date' => Carbon::parse($request->end_date)->format('Y-m-d'),
         ]);
+        
     	$backendFunc = new BackendController();
 
         if ($request->facebook) {
