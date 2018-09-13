@@ -1,24 +1,25 @@
-@extends('Backend.header')
+@extends('Backend.layout')
 @section('content')
 <div id="main_content" class="shadoweffect">  
     
     <div class="title">Post Message:</div>
-    <textarea id='entry_text_area' name="content" class="form-control my-editor"></textarea>
+    <form novalidate method="POST" action="{{ route('submit')}}">
+        {{ csrf_field() }}
+        <textarea id='entry_text_area' name="content" class="form-control my-editor"></textarea>
 
-    <form id='entry_choices_area' action="/action_page.php">
-        <div class="caption">Send as: </div>
-        <select>
-            <option value="person1">Person 1</option>
-            <option value="person2">Person 2</option>
-            <option value="person3">Person 3</option>
-            <option value="person4">Person 4</option>
-        </select><br>
-        <input type="checkbox" name="facebook" value="Facebook">Facebook<br>
-        <input type="checkbox" name="slack" value="Slack">Slack<br>
-        <input type="checkbox" name="googlecalendar" value="Slack">Google Calendar<br>
+        <div id="entry_choices_area">
+            <div class="caption">Send as: </div>
+            <select>
+                @foreach($posters as $poster) 
+                    <option value="{!! $poster->id !!}"> {!! $poster->name !!} </option> 
+                @endforeach
+            </select><br>
+            <input type="checkbox" name="facebook" value="Facebook">Facebook<br>
+            <input type="checkbox" name="slack" value="Slack">Slack<br>
+            <input type="checkbox" name="googlecalendar" value="Slack">Google Calendar<br>
 
-        <input type="submit" value="Send">
-        <a href="{{ route('back.form') }}" class="btn btn-primary">to form</a>
+            <input type="submit" value="Send">
+        </div>
     </form>
 
 </div>
