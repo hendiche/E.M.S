@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Posters extends Migration
+class Posts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class Posters extends Migration
      */
     public function up()
     {
-        Schema::create('posters', function (Blueprint $table) {
-            $table->index('id');
-            $table->string('name');
+        Schema::create('posts', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('message');
+            $table->string('image')->nullable();
+            $table->integer('fk_poster_id')->unsigned();
+            $table->foreign('fk_poster_id')->references('id')->on('posters');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class Posters extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posters');
+        Schema::dropIfExists('posts');
     }
 }

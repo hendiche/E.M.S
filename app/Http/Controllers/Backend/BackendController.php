@@ -38,7 +38,7 @@ class BackendController extends Controller
 	public function facebook($content)
 	{
 		$url = "https://graph.facebook.com/v3.1/956851531155391/feed";
-		$fb_token = "EAAc6g5KyLsgBAIUdZAmj1L6ph8iBoQBBV6csnMSzAKPA4K4ZBtqOvFFYyyH0Bs37CgNRZCdyzHgvIVqDHXOVGxpnGBtORIPF9vxAn2pSLyzSgdgG9AvhNti3RZB4TYyVZAEbFWEXR0bvVbF6RZBqpWPx8tPCrunE9cAaDd240nXNuiWyPzAZCYdSfwt7Idfk349NycT3ovyDQZDZD";
+		$fb_token = "EAAc6g5KyLsgBANEbUMvzE7gGXi4sNVpQf1e5M39GTr2h9FO0NQj8iO2M4b4SjEODfKKGHDZAgrebHDuMNx6JdfMKcvvr5GJbvpHJmmBZCDKDlT4qcMZCCB4fBqfoctx4rFz1L5qC1hNVdSm6GEEKhAKoWJNZCP6WieeZA1iTbSDuZATWKwxdZAArPZARGBNHBz0eioC5cnMUKAZDZD";
 		$message = $content;
 
 		$url = $url . "?access_token=" . $fb_token;

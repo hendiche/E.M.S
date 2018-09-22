@@ -17,9 +17,9 @@ class AddDetailsToPosts extends Migration
             $table->string('name');
             $table->date('start_date');
             $table->date('end_date');
-            $table->boolean('facebook');
-            $table->boolean('slack');
-            $table->boolean('google_calendar');
+            $table->boolean('facebook')->default(false);
+            $table->boolean('slack')->default(false);
+            $table->boolean('google_calendar')->default(false);
         });
     }
 
